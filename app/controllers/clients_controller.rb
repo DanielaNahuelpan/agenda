@@ -5,7 +5,12 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
-    @pagy, @clients = pagy(Client.all)
+    ccc = params[:cadena]
+      if ccc.present?
+        @pagy, @clients = pagy(Client.por_nombre_o_email(ccc))
+      else
+        @pagy, @clients = pagy(Client.all)
+      end  
   end
 
   # GET /clients/1 or /clients/1.json

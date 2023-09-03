@@ -2,6 +2,14 @@
 
 <h1>Clientes</h1>
 
+<%= form_with method: :get do |form| %>
+  <%= form.label :Buscar_por_nombre_o_por_email, style: "display: block" %>
+  <%= form.text_field :cadena %>
+  <%= form.submit "Buscar" %>
+<% end %>
+
+<% if @clients.count > 0 %>
+<br>
 <div id="clients">
 <table class="table table-dark table-hover">
     <thead>
@@ -43,6 +51,10 @@
 <div class="text-center">
   <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
 </div>
+
+<% else %>
+  <h1>No hay resultados, inténtalo nuevamente</h1>
+<% end %>
 
 <%= link_to "New client", new_client_path %>
 
