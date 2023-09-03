@@ -14,22 +14,22 @@
     <%= client.email %>
   </p>
 
-<table class="table table-bordered">
+<table class="table table-dark table-hover">
 
     <thead>
       <tr>
-        <th>Tipo</th>
-        <th>Operador</th>
-        <th>Fecha</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Operador</th>
+        <th scope="col">Fecha</th>
       </tr>
     </thead>
     
   <tbody>
       <% client.calls.each do |call| %>
         <tr>
-          <td><%= call.reason.name %></td>
-          <td><%= call.user.email %></td>
-          <td><%= call.created_at %></td>
+          <td scope="col"><%= call.reason.name %></td>
+          <td scope="col"><%= call.user.email %></td>
+          <td scope="col"><%= call.created_at %></td>
         </tr>
       <% end %>
     </tbody>
