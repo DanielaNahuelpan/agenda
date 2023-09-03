@@ -1,0 +1,37 @@
+#btn-custom {
+    background-color: #f2a202; 
+    color: #faf8f6; 
+    border: none; 
+}
+
+.pag-bar {
+    background-color: #ffffff; /* Color de fondo */
+}
+
+.pag-bar .page-item:not(.active) .page-link {
+    color: #333; /* Color de los números de página */
+    border-color: #333;
+}
+
+.pag-bar .page-item.active .page-link {
+    background-color: #333; /* Color de fondo del número de página activa */
+    color: #fff; /* Color del número de página activa */
+    border-color: #333;
+}
+
+.pag-bar .page-link {
+    border-color: #333; /* Color del borde de los números de página */
+}
+
+.pag-bar .page-link:hover {
+    background-color: #555; /* Color de fondo al pasar el cursor por encima */
+    color: #fff; /* Color del número de página al pasar el cursor por encima */
+}
+
+.custom-icon {
+    color: #ffffff
+}
+
+.navbar.bg-body-tertiary {
+    background-color: #333 !important;
+}

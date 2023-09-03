@@ -1,12 +1,26 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Clientes</h1>
+<h1 class="text-center">CLIENTES</h1>
 
-<%= form_with method: :get do |form| %>
-  <%= form.label :Buscar_por_nombre_o_por_email, style: "display: block" %>
-  <%= form.text_field :cadena %>
-  <%= form.submit "Buscar" %>
-<% end %>
+<div class="row mb-3 mt-3">
+
+  <div class="col-md-6">
+
+    <%= form_with method: :get do |form| %>
+      <%= form.label :Busca_por_nombre_o_por_email, style: "display: block" %>
+
+        <br>
+
+        <div class="input-group">
+          <%= form.text_field :cadena, placeholder: 'Buscar ', value: params[:query_text], class: 'form-control mr-2' %>
+          <%= form.submit "Buscar", class: 'btn btn-primary', id: 'btn-custom' %>
+        </div>
+
+    <% end %>
+
+  </div>
+
+</div>
 
 <% if @clients.count > 0 %>
 <br>
@@ -32,23 +46,23 @@
         <td><%= client.email %></td>
         <td>
           <%= link_to client do %>
-            <i class="fa-solid fa-eye"></i>
+            <i class="fa-solid fa-eye custom-icon" ></i>
           <% end %>
         </td>
         <td>
           <%= link_to new_call_path do %>
-            <i class="fa-solid fa-phone"></i>
+            <i class="fa-solid fa-phone custom-icon"></i>
           <% end %>
         </td>
-        <td><%= link_to "Edit this client", edit_client_path(client) %></td>
-        <td><%= button_to "Destroy this client", client, method: :delete %></td>
+        <td><%= link_to "Edit this client", edit_client_path(client), class: 'btn btn-primary', id: 'btn-custom' %></td>
+        <td><%= button_to "Destroy this client", client, method: :delete, class: 'btn btn-primary', id: 'btn-custom' %></td>
       </tr>
     </tbody>
   <% end %>
   </table>
 </div>
 
-<div class="text-center">
+<div class="pag-bar mt-3 pt-3">
   <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
 </div>
 
@@ -56,5 +70,5 @@
   <h1>No hay resultados, inténtalo nuevamente</h1>
 <% end %>
 
-<%= link_to "New client", new_client_path %>
+<%= link_to "New client", new_client_path, class: 'btn btn-primary', id: 'btn-custom' %>
 

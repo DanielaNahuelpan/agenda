@@ -1,12 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Llamadas</h1>
+<h1 class="text-center">LLAMADAS</h1>
 
-<%= form_with method: :get do |form| %>
-  <%= form.label :Buscar_por_llamada_o_por_razón, style: "display: block" %>
-  <%= form.text_field :cadena %>
-  <%= form.submit "Buscar" %>
-<% end %>
+<div class="row mb-3 mt-3">
+
+  <div class="col-md-6">
+
+    <%= form_with method: :get do |form| %>
+
+      <%= form.label :Busca_por_cliente_o_por_razon, style: "display: block" %>
+      <br>
+      <div class="input-group">
+        <%= form.text_field :cadena, placeholder: 'Buscar una llamada', value: params[:query_text], class: 'form-control mr-2' %>
+        <%= form.submit "Buscar", class: 'btn btn-primary', id: 'btn-custom' %>
+      </div>
+
+    <% end %>
+
+  </div>
+
+</div>
 
 <% if @calls.count > 0 %>
 <br>
@@ -28,14 +41,14 @@
       <td><%= call.client.name %></td>
       <td><%= call.reason.name %></td>
       <td><%= call.created_at %></td>
-      <td><%= link_to "Show this call", call %></td>
+      <td><%= link_to "Ver llamada", call, class: 'btn btn-primary', id: 'btn-custom' %></td>
     </tr>
   </tbody>
   <% end %>
 </table>  
 </div>
 
-<div class="text-center">
+<div class="pag-bar mt-3 pt-3">
   <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
 </div>
 
@@ -43,4 +56,4 @@
   <h1>No hay resultados, inténtalo nuevamente</h1>
 <% end %>
 
-<%= link_to "New call", new_call_path %>
+<%= link_to "New call", new_call_path, class: 'btn btn-primary', id: 'btn-custom' %>

@@ -14,8 +14,26 @@
     <%= client.email %>
   </p>
 
-  <% client.calls.each do |call| %>
-    <p>Tipo: <%=call.reason.name%> - Operador: <%=call.user.email%> - Fecha: <%=call.created_at%></p>
-  <% end %>
+<table class="table table-bordered">
+
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Operador</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    
+  <tbody>
+      <% client.calls.each do |call| %>
+        <tr>
+          <td><%= call.reason.name %></td>
+          <td><%= call.user.email %></td>
+          <td><%= call.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+
+</table>
 
 </div>
